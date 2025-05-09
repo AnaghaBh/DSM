@@ -1,0 +1,9 @@
+LOAD CSV WITH HEADERS FROM 'file:///filtered_review_data.csv' AS row
+MATCH (u:User {user_id: row.user_id})
+MATCH (b:Business {business_id: row.business_id})
+MERGE (u)-[:REVIEWED {
+    review_id: row.review_id,
+    stars: toFloat(row.stars),
+    text: row.text,
+    date: datetime(replace(row.date, ' ', 'T'))
+}]->(b);
