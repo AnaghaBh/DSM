@@ -1,0 +1,6 @@
+LOAD CSV WITH HEADERS FROM 'file:///filtered_user_data.csv' AS row
+WITH row, split(row.friends, ', ') AS friendsList
+UNWIND friendsList AS friendId
+MATCH (u1:User {user_id: row.user_id})
+MATCH (u2:User {user_id: friendId})
+MERGE (u1)-[:FRIENDS_WITH]-(u2);
