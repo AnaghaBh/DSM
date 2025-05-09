@@ -1,0 +1,24 @@
+LOAD CSV WITH HEADERS FROM 'file:///filtered_user_data.csv' AS row
+CREATE (:User {
+    user_id: row.user_id,
+    yelping_since: datetime(replace(row.yelping_since, ' ', 'T')),
+    review_count: toInteger(row.review_count),
+    useful: toInteger(row.useful),
+    funny: toInteger(row.funny),
+    cool: toInteger(row.cool),
+    average_stars: toFloat(row.average_stars)
+    compliment_hot: toInteger(row.compliment_hot),
+    compliment_more: toInteger(row.compliment_more),
+    compliment_profile: toInteger(row.compliment_profile),
+    compliment_cute: toInteger(row.compliment_cute),
+    compliment_list: toInteger(row.compliment_list),
+    compliment_note: toInteger(row.compliment_note),
+    compliment_plain: toInteger(row.compliment_plain),
+    compliment_cool: toInteger(row.compliment_cool),
+    compliment_funny: toInteger(row.compliment_funny),
+    compliment_writer: toInteger(row.compliment_writer),
+    compliment_photos: toInteger(row.compliment_photos),
+    days_on_yelp: toInteger(row.days_on_yelp),
+    friend_count: toInteger(row.friend_count),
+    elite_years: row.elite_years
+});
