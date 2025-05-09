@@ -1,0 +1,15 @@
+LOAD CSV WITH HEADERS FROM 'file:///filtered_business_data.csv' AS row
+CREATE (:Business {
+    business_id: row.business_id,
+    name: row.name,
+    address: row.address,
+    city: row.city,
+    state: row.state,
+    latitude: toFloat(row.latitude),
+    longitude: toFloat(row.longitude),
+    stars: toFloat(row.stars),
+    review_count: toInteger(row.review_count),
+    is_open: toInteger(row.is_open),
+    categories: split(row.categories, ', '),
+    category_tuple: row.category_tuple
+});
