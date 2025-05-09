@@ -1,0 +1,9 @@
+WITH u1, b2, COUNT(DISTINCT u2) AS supporting_users
+WHERE supporting_users >= 6
+
+WITH u1, b2, supporting_users
+ORDER BY supporting_users DESC
+WITH u1, COLLECT({b2: b2, support: supporting_users})[..5] AS top_recs
+UNWIND top_recs AS rec
+MERGE (u1)-[r:RECOMMENDED]->(rec.b2)
+SET r.supporting_users = rec.support
