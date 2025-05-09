@@ -1,0 +1,8 @@
+LOAD CSV WITH HEADERS FROM 'file:///filtered_tip_data.csv' AS row
+MATCH (u:User {user_id: row.user_id})
+MATCH (b:Business {business_id: row.business_id})
+MERGE (u)-[:TIPPED {
+    text: row.text,
+    date: datetime(replace(row.date, ' ', 'T')),
+    compliment_count: toInteger(row.compliment_count)
+}]->(b);
