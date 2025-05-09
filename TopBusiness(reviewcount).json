@@ -1,0 +1,42 @@
+﻿[
+  {
+    "business": "Starbucks",
+    "reviewCount": 388
+  },
+  {
+    "business": "McDonald's",
+    "reviewCount": 258
+  },
+  {
+    "business": "Chick-fil-A",
+    "reviewCount": 208
+  },
+  {
+    "business": "Dunkin'",
+    "reviewCount": 172
+  },
+  {
+    "business": "Chipotle Mexican Grill",
+    "reviewCount": 153
+  },
+  {
+    "business": "Panera Bread",
+    "reviewCount": 145
+  },
+  {
+    "business": "Taco Bell",
+    "reviewCount": 131
+  },
+  {
+    "business": "Wendy's",
+    "reviewCount": 120
+  },
+  {
+    "business": "Target",
+    "reviewCount": 119
+  },
+  {
+    "business": "Outback Steakhouse",
+    "reviewCount": 108
+  }
+]
